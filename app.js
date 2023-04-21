@@ -17,7 +17,6 @@ mongoose
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
-app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -30,9 +29,10 @@ app.use((req, res, next) => {
   );
   next();
 });
+app.use(express.json());
 app.use(express.static("public"));
 app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: this.path.join(__dirname, "public") });
+  res.sendFile("index.html", { root: path.join(__dirname, "public") });
 });
 app.use("/", userRoutes);
 app.use("/", managerRoutes);
