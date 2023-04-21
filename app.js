@@ -5,6 +5,7 @@ const serviceRoutes = require("./routes/service");
 const managerRoutes = require("./routes/manager");
 const townRoutes = require("./routes/town");
 const hospitalRoutes = require("./routes/hospital");
+const pocessRoutes = require("./routes/pocess");
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.use("/", managerRoutes);
 app.use("/", serviceRoutes);
 app.use("/", townRoutes);
 app.use("/", hospitalRoutes);
+app.use("/", pocessRoutes);
 
 module.exports = app;
