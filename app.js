@@ -6,6 +6,7 @@ const managerRoutes = require("./api/routes/manager");
 const townRoutes = require("./api/routes/town");
 const hospitalRoutes = require("./api/routes/hospital");
 const pocessRoutes = require("./api/routes/pocess");
+const path = require("path");
 
 const app = express();
 
