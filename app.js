@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/user");
-const serviceRoutes = require("./routes/service");
-const managerRoutes = require("./routes/manager");
-const townRoutes = require("./routes/town");
-const hospitalRoutes = require("./routes/hospital");
-const pocessRoutes = require("./routes/pocess");
+const userRoutes = require("./api/routes/user");
+const serviceRoutes = require("./api/routes/service");
+const managerRoutes = require("./api/routes/manager");
+const townRoutes = require("./api/routes/town");
+const hospitalRoutes = require("./api/routes/hospital");
+const pocessRoutes = require("./api/routes/pocess");
 
 const app = express();
 
@@ -29,6 +29,10 @@ app.use((req, res, next) => {
     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
   );
   next();
+});
+app.use(express.static("public"));
+app.get("/", (req, res) => {
+  res.sendFile("index.html", { root: this.path.join(__dirname, "public") });
 });
 app.use("/", userRoutes);
 app.use("/", managerRoutes);
